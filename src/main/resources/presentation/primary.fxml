@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1061.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.PrimaryController">
+  <tabs>
+    <Tab text="Clientes">
+      <content>
+        <AnchorPane fx:id="tv_birthDate" minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1039.0">
+               <children>
+                  <TableView fx:id="tv_customer" layoutX="31.0" layoutY="37.0" onMouseClicked="#handleOnMouseClicked" prefHeight="459.0" prefWidth="986.0">
+                    <columns>
+                      <TableColumn fx:id="col_customerName" prefWidth="111.0" text="Nombre" />
+                        <TableColumn fx:id="col_idCard" prefWidth="154.0" text="DNI" />
+                        <TableColumn fx:id="col_creditLimit" minWidth="7.0" prefWidth="199.0" text="Limite de Credito" />
+                        <TableColumn fx:id="col_phoneNumber" minWidth="0.0" prefWidth="134.0" text="Telefono" />
+                      <TableColumn fx:id="col_customerEmail" prefWidth="173.0" text="Email" />
+                        <TableColumn fx:id="col_birthDate" prefWidth="214.0" text="Fecha de nacimiento" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="bt_actualizar" layoutX="411.0" layoutY="595.0" mnemonicParsing="false" onAction="#onClick_bt_actualizar" text="Actualizar" />
+                  <Button fx:id="bt_aniadir" layoutX="520.0" layoutY="595.0" mnemonicParsing="false" onAction="#onClick_bt_aniadir" text="Añadir" />
+                  <Button fx:id="bt_eliminar" layoutX="614.0" layoutY="595.0" mnemonicParsing="false" onAction="#onClick_bt_eliminar" text="Eliminar" />
+                  <TextField fx:id="tf_customerName" layoutX="31.0" layoutY="520.0" prefHeight="47.0" prefWidth="149.0" promptText="Nombre" />
+                  <TextField fx:id="tf_idCard" layoutX="190.0" layoutY="520.0" prefHeight="47.0" prefWidth="149.0" promptText="DNI" />
+                  <TextField fx:id="tf_creditLimit" layoutX="355.0" layoutY="520.0" prefHeight="47.0" prefWidth="149.0" promptText="Limite de Credito" />
+                  <TextField fx:id="tf_phoneNumber" layoutX="524.0" layoutY="520.0" prefHeight="47.0" prefWidth="149.0" promptText="Telefono" />
+                  <TextField fx:id="tf_customerEmail" layoutX="686.0" layoutY="520.0" prefHeight="47.0" prefWidth="149.0" promptText="Email" />
+                  <TextField fx:id="tf_birthDate" layoutX="850.0" layoutY="520.0" prefHeight="47.0" prefWidth="149.0" promptText="Fecha de nacimiento" />
+                  <Button fx:id="bt_limpiar" layoutX="494.0" layoutY="637.0" mnemonicParsing="false" onAction="#onClick_bt_limpiar" text="Limpiar Registro" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab text="Productos">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1039.0">
+               <children>
+                  <TableView fx:id="productsTableView" layoutX="31.0" layoutY="37.0" onMouseClicked="#handleProductMouseCicked" prefHeight="459.0" prefWidth="986.0">
+                     <columns>
+                        <TableColumn fx:id="colProductCode" prefWidth="171.0" text="Codigo Producto" />
+                        <TableColumn fx:id="colProductName" prefWidth="187.0" text="Producto" />
+                        <TableColumn fx:id="colProductDescription" minWidth="7.0" prefWidth="181.0" text="Descripcion" />
+                        <TableColumn fx:id="colQuantityInStock" minWidth="0.0" prefWidth="183.0" text="Stock" />
+                        <TableColumn fx:id="colBuyPrice" prefWidth="263.0" text="Precio compra" />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="updateProductBtn" disable="true" layoutX="407.0" layoutY="594.0" mnemonicParsing="false" onAction="#onActionUpdateProductBtn" text="Actualizar" />
+                  <Button fx:id="addNewProductBtn" layoutX="519.0" layoutY="594.0" mnemonicParsing="false" onAction="#onActionAddNewProductBtn" text="Añadir" />
+                  <Button fx:id="deleteProductBtn" disable="true" layoutX="617.0" layoutY="594.0" mnemonicParsing="false" onAction="#onActionDeleteProductBtn" text="Eliminar" />
+                  <TextField fx:id="productCodeField" disable="true" layoutX="89.0" layoutY="532.0" prefHeight="40.0" prefWidth="150.0" promptText="Codi Producte" />
+                  <TextField fx:id="productNameField" layoutX="263.0" layoutY="532.0" prefHeight="40.0" prefWidth="150.0" promptText="Producto" />
+                  <TextField fx:id="productDescriptionField" layoutX="441.0" layoutY="532.0" prefHeight="40.0" prefWidth="150.0" promptText="Descripción" />
+                  <TextField fx:id="quantityInStockField" layoutX="618.0" layoutY="532.0" prefHeight="40.0" prefWidth="150.0" promptText="Stock" />
+                  <TextField fx:id="buyPriceField" layoutX="797.0" layoutY="532.0" prefHeight="40.0" prefWidth="150.0" promptText="Precio compra" />
+                  <Button fx:id="cleanFieldsBtn" layoutX="494.0" layoutY="635.0" mnemonicParsing="false" onAction="#onActionCleanFieldsBtn" text="Limpiar Registro" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="orderPane" text="Pedido">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1039.0">
+               <children>
+                  <TableView fx:id="orderTableView" layoutX="26.0" layoutY="109.0" onMouseClicked="#handleOrderOnMouseClicked" prefHeight="382.0" prefWidth="985.0">
+                     <columns>
+                        <TableColumn fx:id="colOrderNum" prefWidth="131.0" text="Nº pedido" />
+                        <TableColumn fx:id="colOrderDate" prefWidth="163.0" text="Fecha pedido" />
+                        <TableColumn fx:id="colRequiredDate" minWidth="7.0" prefWidth="198.0" text="Fecha llegada" />
+                        <TableColumn fx:id="colShippedDate" minWidth="0.0" prefWidth="176.0" text="Fecha de envio" />
+                        <TableColumn fx:id="colCustomerEmailOrder" prefWidth="169.0" text="Mail Usuario" />
+                        <TableColumn fx:id="colTotalOrderPrice" prefWidth="148.0" text="Precio pedido" />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="deleteOrderBtn" disable="true" layoutX="540.0" layoutY="602.0" mnemonicParsing="false" onAction="#onActionDeleteOrderBtn" text="Eliminar" />
+                  <DatePicker fx:id="fromOrderData" layoutX="31.0" layoutY="43.0" prefHeight="24.0" prefWidth="195.0" promptText="De" />
+                  <DatePicker fx:id="toOrderData" layoutX="242.0" layoutY="43.0" prefHeight="24.0" prefWidth="195.0" promptText="Hasta" />
+                  <Text layoutX="31.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filtrar entre dos fechas" />
+                  <Button fx:id="updateOrderBtn" disable="true" layoutX="425.0" layoutY="602.0" mnemonicParsing="false" onAction="#onActionUpdateOrderBtn" text="Modificar" />
+                  <Button fx:id="searchRangeBtn" layoutX="474.0" layoutY="43.0" mnemonicParsing="false" onAction="#onActionSearchRangeBtn" text="Buscar" />
+                  <DatePicker fx:id="orderDate" layoutX="202.0" layoutY="537.0" prefHeight="24.0" prefWidth="195.0" promptText="Fecha de pedido" />
+                  <DatePicker fx:id="requiredDate" layoutX="433.0" layoutY="537.0" prefHeight="24.0" prefWidth="195.0" promptText="Fecha de llegada" />
+                  <DatePicker fx:id="shippedDate" layoutX="662.0" layoutY="537.0" prefHeight="24.0" prefWidth="195.0" promptText="Fecha de envío" />
+                  <ComboBox fx:id="clientComboBox" layoutX="21.0" layoutY="537.0" prefWidth="150.0" promptText="Cliente" />
+                  <Button fx:id="createOrderBtn" layoutX="333.0" layoutY="602.0" mnemonicParsing="false" onAction="#onActionCreateOrderBtn" text="Añadir" />
+                  <Button fx:id="openOrderBtn" disable="true" layoutX="648.0" layoutY="602.0" mnemonicParsing="false" onAction="#onActionOpenOrderBtn" text="Abrir pedido" />
+                  <Text layoutX="202.0" layoutY="524.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de pedido:" />
+                  <Text layoutX="437.0" layoutY="524.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de llegada:" />
+                  <Text layoutX="662.0" layoutY="524.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de envío:" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab id="orderDetail" fx:id="orderDetailPane" disable="true" text="Detalle de pedido">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1039.0">
+               <children>
+                  <TableView fx:id="orderDetailTableView" layoutX="35.0" layoutY="190.0" onMouseClicked="#handleOrderDetailOnMouseClicked" prefHeight="386.0" prefWidth="992.0">
+                     <columns>
+                        <TableColumn fx:id="colOrderLineNumber" maxWidth="250.0" prefWidth="157.0" text="Línea de pedido" />
+                        <TableColumn fx:id="colOrderNumDetails" prefWidth="120.0" text="Nº Pedido" />
+                        <TableColumn fx:id="colOrderDetailProductCode" prefWidth="108.0" text="Nº Producto" />
+                        <TableColumn fx:id="colQuantity" minWidth="0.0" prefWidth="125.0" text="Cantidad" />
+                        <TableColumn fx:id="colPriceEach" minWidth="0.0" prefWidth="153.0" text="Precio por unidad" />
+                        <TableColumn fx:id="colTotalPrice" minWidth="0.0" prefWidth="153.0" text="Precio total" />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="addProductBtn" disable="true" layoutX="669.0" layoutY="129.0" mnemonicParsing="false" onAction="#onActionAddProductBtn" prefHeight="31.0" prefWidth="138.0" text="Añadir producto" />
+                  <Button fx:id="orderDetailDeleteBtn" disable="true" layoutX="547.0" layoutY="601.0" mnemonicParsing="false" onAction="#onActionOrderDetailDeleteBtn" prefHeight="27.0" prefWidth="91.0" text="Eliminar" />
+                  <ComboBox fx:id="productComboBox" disable="true" layoutX="37.0" layoutY="129.0" prefWidth="150.0" promptText="Producto" />
+                  <TextField fx:id="productQuantity" disable="true" layoutX="244.0" layoutY="129.0" prefHeight="30.0" prefWidth="164.0" promptText="Cantidad" />
+                  <TextField fx:id="priceEach" disable="true" layoutX="458.0" layoutY="129.0" prefHeight="30.0" prefWidth="164.0" promptText="PVP unitario" />
+                  <Separator layoutX="37.0" layoutY="78.0" prefHeight="24.0" prefWidth="988.0" />
+                  <Button fx:id="orderDetailUpdateBtn" disable="true" layoutX="429.0" layoutY="601.0" mnemonicParsing="false" onAction="#onActionOrderDetailUpdateBtn" prefHeight="31.0" prefWidth="92.0" text="Modificar" />
+                  <Label fx:id="openedOrder" layoutX="518.0" layoutY="27.0" prefHeight="21.0" prefWidth="105.0" text="Nuevo pedido" />
+                  <Label layoutX="460.0" layoutY="29.0" text="Pedido:" />
+                  <Label layoutX="244.0" layoutY="102.0" text="Cantidad:" />
+                  <Label layoutX="460.0" layoutY="102.0" text="PVP:" />
+                  <Button fx:id="orderDetailSaveBtn" disable="true" layoutX="899.0" layoutY="601.0" mnemonicParsing="false" onAction="#onActionOrderDetailSaveBtn" prefHeight="31.0" prefWidth="126.0" text="Guardar Pedido" />
+                  <Button fx:id="cancelOrderBtn" disable="true" layoutX="37.0" layoutY="601.0" mnemonicParsing="false" onAction="#onActionCancelOrderBtn" prefHeight="31.0" prefWidth="129.0" text="Cancelar Pedido" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
