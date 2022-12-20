@@ -85,4 +85,5 @@
             </plugin>
         </plugins>
     </build>
+    <name>M03UF6-BBDD-GitHub</name>
 </project>
